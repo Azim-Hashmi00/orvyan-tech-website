@@ -2560,7 +2560,7 @@
             border: none;
             cursor: pointer;
             transition: color 0.3s var(--ease);
-            min-height: 52px;
+            min-height: 84px;
         }
         .faq-q:hover {
             color: var(--accent);
@@ -3679,7 +3679,6 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/></svg>
                             Send message
                         </button>
-                        <p class="form-note">This form is a static demo — connect it to Formspree, a webhook, or your own backend to receive submissions.</p>
                         <div class="form-success" id="formSuccess" role="status" aria-live="polite">Thanks — your message is ready to send once this form is connected to a backend.</div>
                     </form>
                 </div>
@@ -4257,6 +4256,12 @@
         ];
 
         const portfolio = [{
+            tag: 'n8n · AI Agent',
+            title: 'WhatsApp Support Chatbot',
+            desc: 'Answers customer questions on WhatsApp instantly, around the clock, and escalates to a human the moment a query needs a real person.',
+            tools: ['n8n', 'WhatsApp Business API', 'OpenAI'],
+            image: 'portfolio-whatsapp-bot.jpg'
+        }, {
             tag: 'n8n · Content Automation',
             title: 'Social Media Auto-Poster',
             desc: 'Pulls scheduled posts from a shared sheet, formats them per platform, and publishes automatically — no manual uploading, ever.',
