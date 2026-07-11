@@ -2840,6 +2840,22 @@
         #contact .form-success.visible {
             display: block;
         }
+        #contact .form-error {
+            display: none;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            padding: 0.7rem 1rem;
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid #ef4444;
+            border-radius: var(--r-sm);
+            color: #ef4444;
+            font-size: 0.85rem;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+        #contact .form-error.visible {
+            display: block;
+        }
         #contact .form-note {
             font-size: 0.75rem;
             color: var(--text-muted);
@@ -3656,12 +3672,12 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label class="form-label" for="company">Company (optional)</label>
-                                <input class="form-input" type="text" id="company" name="company" placeholder="Company name">
+                                <label class="form-label" for="company">Company (required)</label>
+                                <input class="form-input" type="text" id="company" name="company" placeholder="Company name" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="phone">Phone (optional)</label>
-                                <input class="form-input" type="tel" id="phone" name="phone" placeholder="+91 00000 00000">
+                                <label class="form-label" for="phone">Phone (required)</label>
+                                <input class="form-input" type="tel" id="phone" name="phone" placeholder="+91 00000 00000" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -3679,8 +3695,9 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="message">Tell us about your project</label>
-                            <textarea class="form-textarea" id="message" name="message" placeholder="What takes up too much of your time right now?" required></textarea>
+                            <textarea class="form-textarea" id="message" name="message" placeholder="What takes up too much of your time right now?"></textarea>
                         </div>
+                        <div id="formError" class="form-error" role="alert" aria-live="polite">Please fill in all required fields to submit the form.</div>
                         <button type="submit" class="btn btn-primary" style="width:100%">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/></svg>
                             Send message
@@ -4465,22 +4482,48 @@
 
         const form = document.getElementById('contactForm');
         const success = document.getElementById('formSuccess');
+        const errorDiv = document.getElementById('formError');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+
+        function validateForm() {
+            const required = form.querySelectorAll('[required]');
+            let valid = true;
+            required.forEach(field => {
+                if (!field.value.trim()) {
+                    valid = false;
+                }
+            });
+            return valid;
+        }
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
+            // Reset error state
+            errorDiv.classList.remove('visible');
+
+            if (!validateForm()) {
+                errorDiv.classList.add('visible');
+                // Scroll to error
+                errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            // If valid, proceed with fetch
             fetch('https://formtorch.com/f/t2vo9j93fa', {
                 method: 'POST',
+                mode: 'no-cors',
                 body: new FormData(form)
             })
-            .then(response => {
-                if (response.ok) {
-                    success.classList.add('visible');
-                    form.reset();
-                    setTimeout(() => success.classList.remove('visible'), 6000);
-                } else {
-                    alert('Something went wrong. Please try again or contact us directly on WhatsApp.');
-                }
+            .then(() => {
+                success.classList.add('visible');
+                form.reset();
+                submitBtn.textContent = 'Message Sent ✓';
+                setTimeout(() => {
+                    success.classList.remove('visible');
+                    submitBtn.textContent = originalBtnText;
+                }, 6000);
             })
             .catch(() => {
                 alert('Something went wrong. Please try again or contact us directly on WhatsApp.');
