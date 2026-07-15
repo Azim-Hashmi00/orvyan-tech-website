@@ -2987,7 +2987,7 @@
         }
 
         /* ============================================================
-           FOOTER — IMPROVED
+           FOOTER — IMPROVED (with extra bottom padding on mobile)
            ============================================================ */
 
         .footer {
@@ -3148,6 +3148,13 @@
             color: var(--accent);
         }
 
+        /* Extra bottom padding for footer on mobile to prevent WhatsApp overlap */
+        @media (max-width: 820px) {
+            .footer {
+                padding-bottom: 80px;
+            }
+        }
+
         @media (max-width: 1024px) {
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -3161,7 +3168,7 @@
                 gap: 1.5rem;
             }
             .footer {
-                padding: 2.5rem 0 1.5rem;
+                padding: 2.5rem 0 80px;
             }
             .social {
                 width: 44px;
@@ -3186,7 +3193,7 @@
                 gap: 1.2rem;
             }
             .footer {
-                padding: 2rem 0 1rem;
+                padding: 2rem 0 80px;
             }
         }
 
