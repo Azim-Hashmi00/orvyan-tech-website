@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms of Service | Orvyan Tech</title>
+
+  <!-- Google Fonts (matching main site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       ORVYAN TECH — TERMS OF SERVICE STYLING
+       Matches main site design system (LIGHT theme)
+       ============================================================ */
+
+    :root {
+      --bg-deep: #F6F7FB;
+      --bg-rich: #EDEFF7;
+      --bg-surface: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --bg-elevated: #F8F9FE;
+      --bg-soft: #F0F2F9;
+
+      --primary: #0A0A12;
+      --primary-dark: #06060A;
+      --primary-light: #1A1A2E;
+      --primary-soft: rgba(10, 10, 18, 0.05);
+
+      --accent: #4F46E5;
+      --accent-dark: #4338CA;
+      --accent-light: #818CF8;
+      --accent-soft: rgba(79, 70, 229, 0.07);
+      --accent-glow: rgba(79, 70, 229, 0.12);
+
+      --grad-accent: linear-gradient(145deg, #4F46E5 0%, #7C3AED 100%);
+      --grad-accent-subtle: linear-gradient(145deg, rgba(79, 70, 229, 0.08), rgba(124, 58, 237, 0.05));
+
+      --text-primary: #0A0A12;
+      --text-secondary: rgba(10, 10, 18, 0.72);
+      --text-tertiary: rgba(10, 10, 18, 0.48);
+      --text-muted: rgba(10, 10, 18, 0.28);
+
+      --border: rgba(10, 10, 18, 0.08);
+      --border-light: rgba(10, 10, 18, 0.04);
+      --border-glow: rgba(79, 70, 229, 0.12);
+      --border-card: rgba(10, 10, 18, 0.05);
+
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 4px 24px -8px rgba(0, 0, 0, 0.06), 0 0 48px -16px rgba(79, 70, 229, 0.02);
+      --shadow-lg: 0 20px 60px -16px rgba(0, 0, 0, 0.08), 0 0 80px -24px rgba(79, 70, 229, 0.03);
+      --shadow-card: 0 1px 0 rgba(0, 0, 0, 0.01), 0 8px 40px -16px rgba(0, 0, 0, 0.05);
+      --shadow-card-hover: 0 8px 48px -16px rgba(0, 0, 0, 0.10), 0 0 80px -24px rgba(79, 70, 229, 0.06), 0 4px 20px -8px rgba(79, 70, 229, 0.04);
+
+      --glass-bg: rgba(255, 255, 255, 0.72);
+      --glass-border: rgba(10, 10, 18, 0.05);
+      --glass-shadow: 0 8px 32px -16px rgba(0, 0, 0, 0.04);
+      --glass-blur: 20px;
+
+      --font-head: "Plus Jakarta Sans", system-ui, sans-serif;
+      --font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+      --r-sm: 8px;
+      --r-md: 12px;
+      --r-lg: 20px;
+      --r-xl: 28px;
+      --r-full: 9999px;
+
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* --- Base --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      background: var(--bg-deep);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Subtle ambient background (like main site) */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 1200px 900px at 15% -5%, rgba(79, 70, 229, 0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 900px 800px at 85% 15%, rgba(124, 58, 237, 0.03) 0%, transparent 60%),
+        radial-gradient(ellipse 1000px 800px at 10% 95%, rgba(79, 70, 229, 0.03) 0%, transparent 65%),
+        radial-gradient(ellipse 800px 700px at 90% 85%, rgba(10, 10, 18, 0.02) 0%, transparent 60%),
+        linear-gradient(180deg, #F6F7FB 0%, #EDEFF7 40%, #F6F7FB 70%, #F6F7FB 100%);
+    }
+
+    /* --- Container --- */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* --- Back to Home link (glass button) --- */
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-full);
+      text-decoration: none;
+      transition: all 0.3s var(--ease);
+      box-shadow: var(--shadow-sm);
+    }
+    .back-home:hover {
+      background: var(--bg-surface);
+      border-color: var(--accent);
+      color: var(--text-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .back-home svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* --- Main Card (glassmorphism) --- */
+    .terms-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--border-card);
+      border-radius: var(--r-xl);
+      padding: 3rem 2.5rem;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s var(--ease);
+    }
+    .terms-card:hover {
+      box-shadow: var(--shadow-card-hover);
+      border-color: var(--border);
+    }
+
+    /* --- Typography --- */
+    h1 {
+      font-family: var(--font-head);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.025em;
+      margin-bottom: 0.25rem;
+    }
+
+    .last-updated {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 2.5rem 0 1rem 0;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border-light);
+      letter-spacing: -0.01em;
+    }
+    h2:first-of-type {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 1.5rem 0 0.5rem 0;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin: 0 0 1rem 0;
+      color: var(--text-secondary);
+    }
+
+    ul, ol {
+      margin: 0.5rem 0 1.2rem 1.8rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+      color: var(--text-secondary);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s var(--ease);
+    }
+    a:hover {
+      color: var(--accent-dark);
+      text-decoration: underline;
+    }
+
+    /* --- Contact block (glass) --- */
+    .contact-block {
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-md);
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-block p {
+      margin: 0.2rem 0;
+    }
+    .contact-block strong {
+      color: var(--text-primary);
+    }
+
+    /* --- Legal Disclaimer — subtle footnote style --- */
+    .footer-note {
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      line-height: 1.6;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem 0.75rem;
+      }
+      .container {
+        padding: 1rem 0.5rem;
+      }
+      .terms-card {
+        padding: 1.75rem 1.25rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+      }
+      h3 {
+        font-size: 1rem;
+      }
+      .footer-note {
+        font-size: 0.7rem;
+      }
+    }
+
+    /* --- Print --- */
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+        padding: 0.5in;
+      }
+      .terms-card {
+        background: #fff;
+        box-shadow: none;
+        border: 1px solid #ddd;
+        backdrop-filter: none;
+        padding: 0;
+      }
+      .back-home {
+        display: none;
+      }
+      a {
+        color: #000;
+      }
+      .contact-block, .footer-note {
+        background: #f5f5f5;
+        border-color: #ddd;
+      }
+      body::before {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Back to Home link -->
+  <a href="index.html" class="back-home">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Home
+  </a>
+
+  <div class="terms-card">
+
+    <h1>Terms of Service</h1>
+    <div class="last-updated"><strong>Last Updated:</strong> July 15, 2026</div>
+
+    <!-- ====== 1. OVERVIEW ====== -->
+    <h2>1. Overview</h2>
+    <p>Welcome to Orvyan Tech ("Company," "we," "us," or "our"). We are an AI automation agency based in India, operating remotely and serving clients globally. These Terms of Service ("Terms") govern your use of our website and the professional services we provide.</p>
+    <p>By accessing our website, booking a consultation, or engaging our services, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please do not use our website or services.</p>
+
+    <!-- ====== 2. ABOUT US ====== -->
+    <h2>2. About Us and Our Services</h2>
+    <p><strong>Orvyan Tech</strong> specializes in:</p>
+    <ul>
+      <li>Building custom AI agents and chatbots</li>
+      <li>Workflow automation using tools such as n8n</li>
+      <li>CRM and lead automation solutions</li>
+      <li>Custom software integrations</li>
+      <li>AI consulting and strategy</li>
+    </ul>
+    <p>All services are delivered remotely from our base in India, and we serve clients worldwide.</p>
+
+    <!-- ====== 3. CONSULTATIONS ====== -->
+    <h2>3. Consultations and Project Inquiries</h2>
+
+    <h3>3.1 Free Consultation</h3>
+    <p>We offer a free initial consultation to discuss your business needs, explore potential solutions, and determine whether our services are a good fit for your project.</p>
+
+    <h3>3.2 Response Time</h3>
+    <p>We strive to respond to all consultation requests and inquiries within <strong>24 hours</strong>. Response times may vary depending on volume and complexity.</p>
+
+    <h3>3.3 Right to Decline</h3>
+    <p>We reserve the right to decline any project inquiry or consultation request for any reason, including but not limited to:</p>
+    <ul>
+      <li>Capacity constraints</li>
+      <li>Misalignment with our areas of expertise</li>
+      <li>Incomplete or unclear project requirements</li>
+      <li>Concerns regarding compliance, ethics, or feasibility</li>
+    </ul>
+
+    <h3>3.4 No Obligation</h3>
+    <p>Booking a consultation does not create any obligation on either party to proceed with a project. A formal engagement begins only when both parties have signed a proposal, scope of work, or agreement.</p>
+
+    <!-- ====== 4. CLIENT RESPONSIBILITIES ====== -->
+    <h2>4. Client Responsibilities</h2>
+    <p>To ensure successful project delivery, you agree to:</p>
+
+    <h3>4.1 Provide Timely Access</h3>
+    <p>Grant us access to the systems, platforms, accounts, and information reasonably required to perform the agreed-upon services.</p>
+
+    <h3>4.2 Provide Complete Information</h3>
+    <p>Furnish all necessary business requirements, data, and documentation in a timely and complete manner.</p>
+
+    <h3>4.3 Review and Feedback</h3>
+    <p>Review deliverables, provide feedback, and respond to our requests for information within agreed timeframes. Delays on your side may impact project timelines and may result in additional costs.</p>
+
+    <h3>4.4 Cooperate in Good Faith</h3>
+    <p>Work collaboratively with our team and provide reasonable assistance as needed throughout the engagement.</p>
+
+    <!-- ====== 5. PAYMENT ====== -->
+    <h2>5. Payment Terms</h2>
+
+    <h3>5.1 Pricing Information</h3>
+    <p>Any pricing shown on our website is <strong>indicative only</strong> and represents starting ranges or estimates. Final pricing, scope, deliverables, and timelines are agreed upon separately in writing through a formal <strong>proposal, scope of work, or invoice</strong> issued by Orvyan Tech.</p>
+
+    <h3>5.2 Invoicing</h3>
+    <p>Specific payment terms — including amounts, due dates, payment methods, and milestones — will be detailed in the proposal and/or invoice provided for your project.</p>
+
+    <h3>5.3 Taxes and Fees</h3>
+    <p>You are responsible for any applicable taxes, duties, or fees associated with our services, unless otherwise agreed in writing.</p>
+
+    <h3>5.4 Late Payments</h3>
+    <p>We reserve the right to suspend or terminate services if payments are not received by the due date(s) specified in your invoice.</p>
+
+    <!-- ====== 6. IP ====== -->
+    <h2>6. Intellectual Property</h2>
+
+    <h3>6.1 Client-Owned Deliverables</h3>
+    <p>Upon <strong>full and final payment</strong> for a project, you (the client) own the custom-built automation, software, or solution specifically developed for you under that engagement, subject to the exceptions below.</p>
+
+    <h3>6.2 Orvyan Tech Ownership</h3>
+    <p>We retain full ownership of:</p>
+    <ul>
+      <li>Our proprietary frameworks, code libraries, templates, and methodologies</li>
+      <li>Reusable components, modules, and tools we have developed (whether or not used in your project)</li>
+      <li>Any pre-existing intellectual property owned by Orvyan Tech prior to or outside of your engagement</li>
+    </ul>
+
+    <h3>6.3 License Grant</h3>
+    <p>We grant you a perpetual, royalty-free license to use any reusable components integrated into your final solution, solely as part of the delivered solution and not as standalone products.</p>
+
+    <h3>6.4 No Unauthorized Use</h3>
+    <p>You may not reverse-engineer, resell, sublicense, or redistribute our proprietary frameworks, templates, or methodology without our express written consent.</p>
+
+    <!-- ====== 7. CONFIDENTIALITY ====== -->
+    <h2>7. Confidentiality</h2>
+
+    <h3>7.1 Definition</h3>
+    <p>"Confidential Information" means any non-public business, technical, financial, or operational information disclosed by either party to the other during the course of the engagement.</p>
+
+    <h3>7.2 Obligations</h3>
+    <p>Both parties agree to:</p>
+    <ul>
+      <li>Keep Confidential Information strictly confidential</li>
+      <li>Use Confidential Information only for the purpose of performing or receiving the services</li>
+      <li>Limit access to Confidential Information to employees or contractors with a genuine need to know</li>
+      <li>Not disclose Confidential Information to third parties without prior written consent, except as required by law</li>
+    </ul>
+
+    <h3>7.3 Exceptions</h3>
+    <p>Confidential Information does not include information that:</p>
+    <ul>
+      <li>Is or becomes publicly available through no fault of the receiving party</li>
+      <li>Was known to the receiving party prior to disclosure</li>
+      <li>Is independently developed without use of the disclosing party's information</li>
+    </ul>
+
+    <h3>7.4 Survival</h3>
+    <p>This confidentiality obligation survives the termination of our engagement.</p>
+
+    <!-- ====== 8. NO GUARANTEE ====== -->
+    <h2>8. No Guarantee of Results</h2>
+
+    <h3>8.1 No ROI Guarantee</h3>
+    <p>While we strive to deliver effective automation solutions, we <strong>do not guarantee</strong>:</p>
+    <ul>
+      <li>Specific business outcomes, revenue growth, or return on investment (ROI)</li>
+      <li>Increased conversion rates, lead generation, or sales performance</li>
+      <li>Any particular financial, operational, or competitive results</li>
+    </ul>
+
+    <h3>8.2 Best Efforts</h3>
+    <p>Our commitment is to apply our expertise and best efforts to deliver solutions that meet the agreed-upon specifications and requirements. Outcomes depend on many factors beyond our control, including your implementation, market conditions, and user adoption.</p>
+
+    <!-- ====== 9. LIABILITY ====== -->
+    <h2>9. Limitation of Liability</h2>
+
+    <h3>9.1 Cap on Liability</h3>
+    <p>To the maximum extent permitted by law, <strong>Orvyan Tech's total liability</strong> to you for any claims arising out of or related to our services or these Terms shall be limited to the <strong>total amount paid by you to us for the specific project giving rise to the claim</strong>, within the 12 months preceding the claim.</p>
+
+    <h3>9.2 Exclusion of Damages</h3>
+    <p>In no event shall Orvyan Tech be liable for:</p>
+    <ul>
+      <li>Indirect, incidental, special, consequential, or punitive damages</li>
+      <li>Lost profits, revenue, data, or business opportunities</li>
+      <li>Damages arising from your inability to use the delivered solution due to factors outside our control</li>
+    </ul>
+
+    <h3>9.3 Scope</h3>
+    <p>This limitation applies to all claims, whether based on contract, tort, negligence, strict liability, or otherwise.</p>
+
+    <!-- ====== 10. THIRD-PARTY ====== -->
+    <h2>10. Third-Party Tools and Platforms</h2>
+    <p>Our services often rely on third-party tools, platforms, and APIs, including but not limited to:</p>
+    <ul>
+      <li>n8n</li>
+      <li>Various CRM systems (e.g., Salesforce, HubSpot)</li>
+      <li>AI APIs (e.g., OpenAI, Anthropic, Google AI)</li>
+      <li>Cloud hosting providers</li>
+      <li>Communication and integration platforms</li>
+    </ul>
+
+    <h3>10.1 No Responsibility for Third Parties</h3>
+    <p>We are <strong>not responsible</strong> for:</p>
+    <ul>
+      <li>Outages, downtime, or performance issues of third-party platforms</li>
+      <li>Changes to third-party terms of service, pricing, or features</li>
+      <li>Data loss, security breaches, or other issues originating from third-party providers</li>
+      <li>Compatibility issues arising from third-party updates</li>
+    </ul>
+
+    <h3>10.2 Your Responsibility</h3>
+    <p>You are responsible for maintaining active accounts, subscriptions, and compliance with the terms of service of any third-party platforms used in connection with our services.</p>
+
+    <!-- ====== 11. ACCEPTABLE USE ====== -->
+    <h2>11. Acceptable Use of Our Website</h2>
+    <p>When using our website, you agree not to:</p>
+
+    <h3>11.1 Prohibited Activities</h3>
+    <ul>
+      <li>Use the website for any unlawful or fraudulent purpose</li>
+      <li>Attempt to gain unauthorized access to our systems or data</li>
+      <li>Distribute malware, viruses, or harmful code</li>
+      <li>Engage in scraping, data mining, or automated data collection</li>
+      <li>Impersonate Orvyan Tech or misrepresent your affiliation with us</li>
+      <li>Post false, misleading, or defamatory content</li>
+    </ul>
+
+    <h3>11.2 Security</h3>
+    <p>You are responsible for maintaining the confidentiality of any login credentials and for all activities that occur under your account.</p>
+
+    <!-- ====== 12. CHANGES ====== -->
+    <h2>12. Changes to These Terms</h2>
+
+    <h3>12.1 Right to Update</h3>
+    <p>We reserve the right to update or modify these Terms at any time without prior notice. Changes become effective immediately upon posting on our website.</p>
+
+    <h3>12.2 Notification</h3>
+    <p>We will indicate the "Last Updated" date at the top of this page. For material changes, we may provide additional notice via email or website notification.</p>
+
+    <h3>12.3 Continued Use</h3>
+    <p>Your continued use of our website or services after any changes constitutes your acceptance of the updated Terms.</p>
+
+    <!-- ====== 13. GOVERNING LAW ====== -->
+    <h2>13. Governing Law and Jurisdiction</h2>
+
+    <h3>13.1 Governing Law</h3>
+    <p>These Terms shall be governed by and construed in accordance with the laws of <strong>India</strong>, without regard to its conflict of law principles.</p>
+
+    <h3>13.2 Jurisdiction</h3>
+    <p>Any disputes arising out of or relating to these Terms or our services shall be subject to the <strong>exclusive jurisdiction of the courts in India</strong>. You consent to the personal jurisdiction of such courts and waive any objection to venue.</p>
+
+    <!-- ====== 14. CONTACT ====== -->
+    <h2>14. Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding these Terms of Service, please contact us at:</p>
+
+    <div class="contact-block">
+      <p><strong>Orvyan Tech</strong></p>
+      <p>📧 Email: <a href="mailto:orvyan.ai@gmail.com">orvyan.ai@gmail.com</a></p>
+      <p>📞 Phone: <a href="tel:+917972928086">+91 79729 28086</a></p>
+    </div>
+
+    <!-- ====== 15. MISCELLANEOUS ====== -->
+    <h2>15. Miscellaneous</h2>
+
+    <h3>15.1 Entire Agreement</h3>
+    <p>These Terms, together with any signed proposal or scope of work, constitute the entire agreement between you and Orvyan Tech regarding our services and supersede all prior agreements.</p>
+
+    <h3>15.2 Severability</h3>
+    <p>If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.</p>
+
+    <h3>15.3 Waiver</h3>
+    <p>Our failure to enforce any right or provision of these Terms does not constitute a waiver of that right or provision.</p>
+
+    <h3>15.4 Assignment</h3>
+    <p>You may not assign your rights or obligations under these Terms without our prior written consent. We may assign our rights and obligations freely.</p>
+
+    <!-- ====== LEGAL DISCLAIMER — subtle footnote ====== -->
+    <div class="footer-note">
+      Legal Disclaimer: This Terms of Service document is a general template provided for informational purposes and is not a substitute for professional legal advice. We strongly recommend that you review this document with a qualified legal professional to ensure it is appropriate for your specific business operations and jurisdiction before publishing.
+    </div>
+
+    <p style="text-align:center; margin-top: 1rem; color: var(--text-muted); font-size:0.85rem;">
+      Orvyan Tech — Building AI-powered automation, remotely from India for the world.
+    </p>
+
+  </div><!-- /terms-card -->
+</div><!-- /container -->
+
+</body>
+</html>
