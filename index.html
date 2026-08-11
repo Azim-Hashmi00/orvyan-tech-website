@@ -19,7 +19,7 @@
     <link rel="canonical" href="https://www.orvyantech.com/" />
 
     <!-- ✅ Clean favicon links — only your actual files -->
-    <title>Orvyan Tech | AI Workflow & WhatsApp Automation Agency</title>
+    <title>Orvyan Tech | AI Automation Agency in India — n8n & Workflow Experts</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -39,7 +39,7 @@
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Orvyan Tech",
-            "url": "https://orvyantech.example.com/",
+            "url": "https://www.orvyantech.com/",
             "logo": "logo.png",
             "email": "orvyan.ai@gmail.com",
             "telephone": "+91 7972928086",
@@ -379,7 +379,7 @@
         }
 
         /* ============================================================
-           NAVBAR — FROZEN (DO NOT MODIFY)
+           NAVBAR — FIXED: full-width dark glass + hide-on-scroll
            ============================================================ */
 
         .header {
@@ -388,40 +388,33 @@
             left: 0;
             width: 100%;
             z-index: 100;
+            padding: 0;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
             background: transparent;
-            padding-top: max(env(safe-area-inset-top, 0px), 1rem);
-            transition: padding .3s var(--ease);
         }
-        .header.scrolled {
-            padding-top: .6rem;
-        }
+
         .navbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
             height: 68px;
+            width: 100%;
             padding-left: max(env(safe-area-inset-left, 0px), 1.6rem);
             padding-right: max(env(safe-area-inset-right, 0px), 1rem);
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(48px);
-            -webkit-backdrop-filter: blur(48px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: var(--r-xl);
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 8px 40px -16px rgba(0, 0, 0, 0.04), 0 0 60px -20px rgba(79, 70, 229, 0.02);
+            background: rgba(10, 10, 15, 0.78);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 0;
             transition: background .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
-        }
-        .header.scrolled .navbar {
-            background: rgba(255, 255, 255, 0.80);
-            border-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 8px 40px -16px rgba(0, 0, 0, 0.06), 0 0 60px -20px rgba(0, 0, 0, 0.02);
         }
 
         @supports not (backdrop-filter: blur(1px)) {
             .navbar {
-                background: rgba(255, 255, 255, 0.98);
+                background: rgba(10, 10, 15, 0.98);
             }
             .nav-list {
-                background: #ffffff !important;
+                background: #101018 !important;
             }
         }
 
@@ -3459,8 +3452,8 @@
                         Workflow Automation
                     </span>
 
-                    <h1 class="hero-title" id="heroTitle">Automation that runs your business while you run your day.</h1>
-                    <p class="hero-desc">Orvyan Tech builds premium AI automation systems, AI agents, workflow automation, and business solutions that help companies save time and scale faster.</p>
+                    <h1 class="hero-title" id="heroTitle">We Engineer AI Automation Systems That Run Your Business</h1>
+                    <p class="hero-desc">From workflow orchestration to AI agents — built on enterprise-grade automation infrastructure including n8n, OpenAI, and custom APIs.</p>
                     <div class="hero-actions">
                         <a href="#contact" class="btn btn-primary">Book a Free Consultation</a>
                         <a href="#services" class="btn btn-outline">See What We Build</a>
@@ -3505,12 +3498,429 @@
             </div>
         </section>
 
+        <!-- ============ START: INSERTED LIVE AGENT CONSOLE ============ -->
+        <!-- ============================================================
+          ORVYAN TECH — LIVE AGENT CONSOLE SECTION (v4 — brand colors)
+          Two-column layout: headline + copy + command list on the left,
+          live streaming terminal on the right. Matches the reference
+          layout (headline / "Talk to one." / try-list / terminal).
+          Self-contained: HTML + CSS + JS, no external libraries.
+        ============================================================ -->
+
+        <section class="orv-live-section" id="live-demo">
+          <div class="orv-live-grid">
+
+            <!-- LEFT: copy + CTA list -->
+            <div class="orv-live-copy">
+              <div class="orv-eyebrow">
+                <span class="orv-dot"></span>
+                AGENT AS A SERVICE&nbsp;·&nbsp;LIVE
+              </div>
+
+              <h2 class="orv-live-heading">
+                Don't take<br />
+                our word for it.<br />
+                <span class="orv-heading-accent">Talk to one.</span>
+              </h2>
+
+              <p class="orv-live-desc">
+                This is a live console attached to a sandbox agent. Watch it
+                work in real-time — or type a command and ask it something.
+              </p>
+
+              <ul class="orv-try-list">
+                <li><button class="orv-try-item" data-cmd="help"><span class="orv-try-arrow">›</span> try <code>help</code></button></li>
+                <li><button class="orv-try-item" data-cmd="status"><span class="orv-try-arrow">›</span> try <code>status</code></button></li>
+                <li><button class="orv-try-item" data-cmd="services"><span class="orv-try-arrow">›</span> try <code>services</code></button></li>
+                <li><button class="orv-try-item" data-cmd="contact"><span class="orv-try-arrow">›</span> try <code>contact</code></button></li>
+              </ul>
+            </div>
+
+            <!-- RIGHT: terminal -->
+            <div class="orv-console" id="orvConsole">
+              <div class="orv-console-topbar">
+                <div class="orv-console-dots">
+                  <span class="orv-dot-red"></span>
+                  <span class="orv-dot-yellow"></span>
+                  <span class="orv-dot-green"></span>
+                </div>
+                <div class="orv-console-title">ORVYAN-AGENT&nbsp;·&nbsp;LIVE</div>
+                <div class="orv-console-status">
+                  <span class="orv-status-dot"></span>connected
+                </div>
+              </div>
+
+              <div class="orv-console-body" id="orvBody"></div>
+
+              <div class="orv-console-inputrow">
+                <span class="orv-prompt">$</span>
+                <input
+                  type="text"
+                  id="orvInput"
+                  class="orv-input"
+                  placeholder="type a command…"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+              </div>
+
+              <div class="orv-console-footer">
+                <span id="orvLineCount">0 lines</span>
+                <span>streaming</span>
+                <span>UTF-8 · enter to send</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <style>
+          .orv-live-section {
+            background: #0A0A0F;
+            padding: 96px 40px;
+          }
+
+          .orv-live-grid {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 56px;
+            align-items: center;
+          }
+
+          @media (max-width: 900px) {
+            .orv-live-grid { grid-template-columns: 1fr; gap: 40px; }
+          }
+
+          /* ---------- LEFT COLUMN ---------- */
+          .orv-live-copy {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+          }
+
+          .orv-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #A78BFA;
+            font-family: "SF Mono", "Fira Code", Consolas, monospace;
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            margin-bottom: 22px;
+          }
+
+          .orv-dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: #4ADE80;
+            animation: orv-pulse 2s infinite;
+          }
+
+          @keyframes orv-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(74,222,128,0.5); }
+            70% { box-shadow: 0 0 0 8px rgba(74,222,128,0); }
+            100% { box-shadow: 0 0 0 0 rgba(74,222,128,0); }
+          }
+
+          .orv-live-heading {
+            font-size: 46px;
+            line-height: 1.12;
+            font-weight: 800;
+            color: #F5F5FA;
+            margin: 0 0 24px 0;
+            letter-spacing: -0.01em;
+          }
+
+          .orv-heading-accent {
+            background: linear-gradient(90deg, #4F46E5, #7C3AED);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-style: italic;
+            font-weight: 600;
+          }
+
+          .orv-live-desc {
+            color: #A5A6B8;
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 440px;
+            margin: 0 0 32px 0;
+          }
+
+          .orv-try-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+          }
+
+          .orv-try-item {
+            background: none;
+            border: none;
+            color: #8B8CA0;
+            font-family: "SF Mono", "Fira Code", Consolas, monospace;
+            font-size: 14px;
+            padding: 6px 0;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.15s ease;
+          }
+
+          .orv-try-item:hover { color: #E5E5F0; }
+          .orv-try-item:hover .orv-try-arrow { color: #7C3AED; }
+          .orv-try-arrow { color: #45455A; transition: color 0.15s ease; }
+
+          .orv-try-item code {
+            background: #14141F;
+            border: 1px solid #26263A;
+            border-radius: 4px;
+            padding: 1px 7px;
+            color: #C7C7E0;
+            font-family: inherit;
+          }
+
+          .orv-try-item:focus-visible {
+            outline: 2px solid #7C3AED;
+            outline-offset: 3px;
+          }
+
+          /* ---------- RIGHT COLUMN: TERMINAL ---------- */
+          .orv-console {
+            background: #0D0D13;
+            border: 1px solid #1F1F2C;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px -28px rgba(124, 58, 237, 0.28);
+          }
+
+          .orv-console-topbar {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            background: #101018;
+            border-bottom: 1px solid #1F1F2C;
+            position: relative;
+          }
+
+          .orv-console-dots { display: flex; gap: 7px; }
+          .orv-console-dots span { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+          .orv-dot-red { background: #FF5F57; }
+          .orv-dot-yellow { background: #FEBC2E; }
+          .orv-dot-green { background: #28C840; }
+
+          .orv-console-title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #6B6B85;
+            font-family: "SF Mono", "Fira Code", Consolas, monospace;
+            font-size: 11.5px;
+            letter-spacing: 0.08em;
+          }
+
+          .orv-console-status {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #4ADE80;
+            font-family: "SF Mono", "Fira Code", Consolas, monospace;
+            font-size: 11.5px;
+          }
+
+          .orv-status-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ADE80; }
+
+          .orv-console-body {
+            height: 400px;
+            overflow-y: hidden;
+            padding: 16px;
+            font-family: "SF Mono", "Fira Code", Consolas, monospace;
+            font-size: 13px;
+            line-height: 1.85;
+            mask-image: linear-gradient(to bottom, transparent, black 56px, black 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 56px, black 100%);
+          }
+
+          .orv-line {
+            white-space: pre-wrap;
+            word-break: break-word;
+            color: #3E3A5C;
+            transition: color 0.6s ease;
+          }
+
+          .orv-line.orv-fresh { color: #C4B5FD; }
+          .orv-line .orv-ts { color: inherit; opacity: 0.65; }
+          .orv-line .orv-arrow { color: #A78BFA; margin: 0 6px; }
+          .orv-line.orv-user-line { color: #C7C7E0; }
+          .orv-line.orv-user-line .orv-arrow { color: #A78BFA; }
+          .orv-line.orv-agent-line { color: #A78BFA; }
+          .orv-line.orv-agent-line .orv-arrow { color: #A78BFA; }
+
+          .orv-console-inputrow {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-top: 1px solid #1F1F2C;
+            padding: 10px 16px;
+            background: #0D0D13;
+          }
+
+          .orv-prompt { color: #A78BFA; font-family: "SF Mono", "Fira Code", Consolas, monospace; font-weight: 700; }
+
+          .orv-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #E5E5F0;
+            font-family: "SF Mono", "Fira Code", Consolas, monospace;
+            font-size: 13px;
+          }
+
+          .orv-input::placeholder { color: #45455A; }
+
+          .orv-console-footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 16px;
+            border-top: 1px solid #1F1F2C;
+            color: #45455A;
+            font-family: "SF Mono", "Fira Code", Consolas, monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.03em;
+          }
+
+          .orv-input:focus-visible { outline: 2px solid #7C3AED; outline-offset: 2px; }
+
+          @media (prefers-reduced-motion: reduce) {
+            .orv-dot { animation: none; }
+          }
+        </style>
+
+        <script>
+        (function () {
+          const bodyEl = document.getElementById('orvBody');
+          const input = document.getElementById('orvInput');
+          const tryItems = document.querySelectorAll('.orv-try-item');
+          const lineCountEl = document.getElementById('orvLineCount');
+
+          // ---- Ambient event pool — EDIT these to match your real workflows ----
+          const EVENTS = [
+            "lead captured · source: Instagram DM · scored 84/100",
+            "lead routed · assigned to sales rep",
+            "WhatsApp message sent · appointment reminder · +91••••210",
+            "CRM contact created · tag: hot lead",
+            "chatbot resolved query · avg response 1.4s",
+            "invoice generated · client: Aura Traders · status: sent",
+            "workflow triggered · abandoned cart sequence · 12 recipients",
+            "meeting booked · calendar synced · Google Meet link sent",
+            "daily report sent · 08:00 IST · ops summary",
+            "low-stock alert · SKU-114 · reorder draft created",
+            "support ticket closed · ticket #0451",
+            "follow-up email queued · sequence step 2/4",
+            "form submission processed · new inquiry logged",
+            "payment reminder sent · invoice #INV-2291",
+            "lead qualified · budget confirmed · routed to closer",
+            "n8n workflow completed · 0 errors · runtime 1.2s",
+          ];
+
+          // ---- Command responses — EDIT to match your real services / tone ----
+          const RESPONSES = {
+            help: "commands: help · status · services · contact",
+            status: "● connected — uptime 41d 06:12 — 0 errors last 24h",
+            services: "we build: AI agents · workflow automation · CRM & lead automation · chatbots · WhatsApp automation. type 'contact' to talk to a human.",
+            contact: "Phone: +91 79729 28086 · Email: orvyan.ai@gmail.com — or scroll down, we reply within 24h.",
+          };
+
+          let lineCount = 0;
+
+          // Uses the visitor's ACTUAL current time — this is what makes it feel
+          // genuinely "live" rather than a scripted demo with a fake clock.
+          function tick() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            const s = String(now.getSeconds()).padStart(2, '0');
+            return `${h}:${m}:${s}`;
+          }
+
+          function addLine(text, kind) {
+            const div = document.createElement('div');
+            div.className = 'orv-line orv-fresh' + (kind ? ' ' + kind : '');
+            if (kind === 'orv-user-line') {
+              div.innerHTML = `<span class="orv-arrow">&gt;</span>${escapeHtml(text)}`;
+            } else if (kind === 'orv-agent-line') {
+              div.innerHTML = `<span class="orv-arrow">agent ›</span>${escapeHtml(text)}`;
+            } else {
+              div.innerHTML = `<span class="orv-ts">${tick()}</span><span class="orv-arrow">›</span>${escapeHtml(text)}`;
+            }
+            bodyEl.appendChild(div);
+            lineCount++;
+            lineCountEl.textContent = lineCount + ' lines';
+
+            setTimeout(() => div.classList.remove('orv-fresh'), 1400);
+
+            while (bodyEl.children.length > 40) {
+              bodyEl.removeChild(bodyEl.firstChild);
+            }
+            bodyEl.scrollTop = bodyEl.scrollHeight;
+          }
+
+          function escapeHtml(str) {
+            const d = document.createElement('div');
+            d.textContent = str;
+            return d.innerHTML;
+          }
+
+          function randomEvent() {
+            return EVENTS[Math.floor(Math.random() * EVENTS.length)];
+          }
+
+          let ambientTimer = null;
+          function startAmbient() { ambientTimer = setInterval(() => addLine(randomEvent()), 1800); }
+          function stopAmbient() { clearInterval(ambientTimer); }
+
+          function runCommand(raw) {
+            const cmd = raw.trim().toLowerCase();
+            if (!cmd) return;
+            stopAmbient();
+            addLine(raw, 'orv-user-line');
+            setTimeout(() => {
+              const reply = RESPONSES[cmd] || `command not recognized: "${raw}" — try 'help'`;
+              addLine(reply, 'orv-agent-line');
+              setTimeout(startAmbient, 2500);
+            }, 350);
+          }
+
+          input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && input.value.trim()) {
+              const val = input.value;
+              input.value = '';
+              runCommand(val);
+            }
+          });
+
+          tryItems.forEach((item) => {
+            item.addEventListener('click', () => runCommand(item.dataset.cmd));
+          });
+
+          for (let i = 0; i < 8; i++) addLine(randomEvent());
+          startAmbient();
+        })();
+        </script>
+        <!-- ============ END: INSERTED LIVE AGENT CONSOLE ============ -->
+
         <!-- Services -->
         <section id="services" class="section">
             <div class="container">
                 <div class="section-head reveal">
                     <span class="eyebrow">What We Build</span>
-                    <h2 class="section-title">Everything you need to automate and scale</h2>
+                    <h2 class="section-title">AI Automation Services We Build — n8n, Chatbots & More</h2>
                     <p class="section-sub">From always-on AI agents to full workflow automation — built around how your business actually runs.</p>
                 </div>
                 <div class="grid-3" id="servicesGrid"></div>
@@ -3547,7 +3957,7 @@
             <div class="container">
                 <div class="section-head reveal">
                     <span class="eyebrow">Industries We Serve</span>
-                    <h2 class="section-title">Automation shaped to your industry</h2>
+                    <h2 class="section-title">AI Automation Solutions for Every Industry</h2>
                     <p class="section-sub">Every sector has its own bottlenecks. We design around yours, not a generic template.</p>
                 </div>
                 <div class="grid-4" id="industriesGrid"></div>
@@ -3645,7 +4055,7 @@
             <div class="container">
                 <div class="section-head reveal">
                     <span class="eyebrow">Get In Touch</span>
-                    <h2 class="section-title">Let's build your automation strategy</h2>
+                    <h2 class="section-title">Get Your Free AI Automation Consultation</h2>
                     <p class="section-sub">Tell us how your work happens today — we'll show you the fastest place to start automating it.</p>
                 </div>
 
@@ -4623,6 +5033,51 @@
             });
         }, { rootMargin: '-45% 0px -50% 0px' });
         document.querySelectorAll('section[id]').forEach(s => navObserver.observe(s));
+
+        /* ============================================================
+           NAVBAR – HIDE ON SCROLL DOWN, SHOW ON SCROLL UP
+           ============================================================ */
+
+        (function() {
+            const headerEl = document.getElementById('header');
+            let lastScrollY = window.scrollY;
+
+            function handleScroll() {
+                const currentScrollY = window.scrollY;
+
+                if (currentScrollY === 0) {
+                    // At top: always show
+                    headerEl.style.transform = 'translateY(0)';
+                    headerEl.style.opacity = '1';
+                } else if (currentScrollY > lastScrollY) {
+                    // Scrolling down: hide
+                    headerEl.style.transform = 'translateY(-100%)';
+                    headerEl.style.opacity = '0';
+                } else {
+                    // Scrolling up: show
+                    headerEl.style.transform = 'translateY(0)';
+                    headerEl.style.opacity = '1';
+                }
+
+                lastScrollY = currentScrollY;
+            }
+
+            // Throttled scroll listener for performance
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        handleScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
+            // Ensure initial state is correct
+            handleScroll();
+        })();
+
     </script>
 </body>
 </html>
