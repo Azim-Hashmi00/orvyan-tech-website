@@ -729,11 +729,47 @@
             pointer-events: auto !important;
         }
 
+        /* ---- FIX 1: Nav text readability in default state ---- */
+        .nav-state-default .nav-link-top,
+        .nav-state-default .nav-link-standalone {
+            color: #FFFFFF !important;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+            background: transparent !important;
+        }
+
+        .nav-state-default .nav-link-top .dropdown-arrow {
+            opacity: 0.8;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .nav-state-default .logo {
+            color: #FFFFFF !important;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-state-default .logo-img {
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .nav-state-default .nav-link-top:hover,
+        .nav-state-default .nav-link-standalone:hover {
+            background: rgba(255, 255, 255, 0.15) !important;
+            color: #FFFFFF !important;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-state-default .nav-item.open .nav-link-top {
+            color: #FFFFFF !important;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-state-default .nav-item.open .nav-link-top .dropdown-arrow {
+            opacity: 0.8;
+        }
+
         /* State 2: Flat, full-width white bar with square corners */
         .nav-state-bar {
             background: var(--canvas) !important;
-            /* TEMPORARY DEBUG BORDER: Remove this line after confirming the hover works */
-            border: 4px solid red !important;
             border-bottom: 1px solid var(--hairline) !important;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
             border-radius: 0 !important;
@@ -759,16 +795,14 @@
             max-width: none !important;
         }
 
-        /* Ensure text colors in state 1 are dark navy #0A2540 */
-        .nav-state-default .nav-link-top,
-        .nav-state-default .nav-link-standalone {
-            color: #0A2540 !important;
-        }
-        .nav-state-default .nav-link-top .dropdown-arrow {
-            opacity: 0.5;
-        }
-        .nav-state-default .logo {
-            color: #0A2540 !important;
+        /* ---- FIX 2: Mobile: hide CTA button on small screens ---- */
+        @media (max-width: 1024px) {
+            .nav-cta-btn {
+                display: none !important;
+            }
+            .nav-right-block {
+                gap: var(--space-sm);
+            }
         }
 
         .nav-left-block {
