@@ -4669,8 +4669,7 @@
 
 
         /* ============================================================
-           NEW 4-STATE NAVIGATION — Stripe-like, flat full-width bar
-           + IntersectionObserver for Hero visibility
+           NEW 4-STATE NAVIGATION — FIXED hover + scroll logic
            ============================================================ */
         (function() {
             'use strict';
@@ -4682,21 +4681,24 @@
                 return;
             }
 
-            // State classes
             const STATE_DEFAULT = 'nav-state-default';
             const STATE_BAR = 'nav-state-bar';
             const STATE_HIDDEN = 'nav-state-hidden';
 
             let isHovering = false;
-            let isHeroVisible = true; // Assume true until observer tells us otherwise
+            let isHeroVisible = true;
             let lastScrollY = window.scrollY;
             let direction = 'none';
             let currentState = STATE_DEFAULT;
             let ticking = false;
 
-            // ---- Helper: apply state ----
+            // ---- Helper: apply state with debug logging ----
             function setState(state) {
                 if (currentState === state) return;
+                // Debug: log when we apply the bar state
+                if (state === STATE_BAR) {
+                    console.log('[NAV DEBUG] applying bar state', navbar.className);
+                }
                 console.log(`[Nav] Transitioning from ${currentState} to ${state}`);
                 navbar.classList.remove(STATE_DEFAULT, STATE_BAR, STATE_HIDDEN);
                 navbar.classList.add(state);
@@ -4705,35 +4707,30 @@
 
             // ---- Core update logic ----
             function updateNavState() {
-                // Priority 1: If hero is not in view, always hide the nav
-                if (!isHeroVisible) {
-                    console.log('[Nav] Hero not visible → forcing HIDDEN');
-                    setState(STATE_HIDDEN);
-                    return;
-                }
-
                 const scrollY = window.scrollY;
-                // Determine direction
+
+                // Update direction
                 if (scrollY > lastScrollY + 2) direction = 'down';
                 else if (scrollY < lastScrollY - 2) direction = 'up';
                 else direction = 'none';
                 lastScrollY = scrollY;
 
                 let newState;
-                const atTop = scrollY === 0;
 
-                // Priority 2: Determine state based on scroll/hover when hero is visible
-                if (atTop) {
-                    // State 1: Always text-only at the very top (Stripe behavior)
-                    newState = STATE_DEFAULT;
-                } else if (direction === 'down') {
-                    // State 3: Hidden while actively scrolling down
+                // 1. Hide immediately when scrolling down (user wants instant hide)
+                if (direction === 'down') {
                     newState = STATE_HIDDEN;
-                } else if (isHovering) {
-                    // State 2: Flat bar when hovering (and not at top, not scrolling down)
+                }
+                // 2. Hide when hero is not visible
+                else if (!isHeroVisible) {
+                    newState = STATE_HIDDEN;
+                }
+                // 3. Show flat white bar on hover (works at any scroll position, including top)
+                else if (isHovering) {
                     newState = STATE_BAR;
-                } else {
-                    // State 1: Text-only when not hovering
+                }
+                // 4. Default: text-only
+                else {
                     newState = STATE_DEFAULT;
                 }
 
@@ -4751,11 +4748,11 @@
                 }
             }
 
-            // ---- Hover detection using robust Event Delegation ----
+            // ---- Hover detection ----
             function handleMouseOver(e) {
                 const target = e.target.closest('#navbar');
                 if (target && !isHovering) {
-                    console.log('[Nav] 🖱️ Delegation mouseenter detected');
+                    console.log('[NAV DEBUG] hover event fired', new Date().toISOString());
                     isHovering = true;
                     updateNavState();
                 }
@@ -4765,15 +4762,12 @@
                 const target = e.target.closest('#navbar');
                 const related = e.relatedTarget;
 
-                // If we are moving to a child element within the navbar, ignore it
+                // If moving to a child within the navbar, ignore
                 if (target && related && target.contains(related)) return;
 
-                // If leaving the navbar entirely
                 if (isHovering) {
-                    // Check if we are moving to something *inside* the navbar
                     const newTarget = related ? related.closest('#navbar') : null;
                     if (!newTarget) {
-                        console.log('[Nav] 🖱️ Delegation mouseleave detected');
                         isHovering = false;
                         updateNavState();
                     }
@@ -4786,16 +4780,13 @@
             // ---- Intersection Observer for Hero visibility ----
             const heroObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    // We consider the hero "in view" if at least 30% of it is visible
                     const visible = entry.isIntersecting && entry.intersectionRatio > 0.3;
-                    console.log('[Nav] Hero intersection changed:', entry.isIntersecting, 'ratio:', entry
-                        .intersectionRatio, 'visible:', visible);
                     if (isHeroVisible !== visible) {
                         isHeroVisible = visible;
                         updateNavState();
                     }
                 });
-            }, { threshold: [0, 0.3, 1] }); // Trigger when crossing 0%, 30%, and 100%
+            }, { threshold: [0, 0.3, 1] });
 
             heroObserver.observe(heroSection);
 
@@ -4808,8 +4799,11 @@
             // ---- Attach scroll listener ----
             window.addEventListener('scroll', onScroll, { passive: true });
 
-            // ---- Handle resize (just to be safe) ----
+            // ---- Handle resize ----
             window.addEventListener('resize', updateNavState, { passive: true });
+
+            // ---- (Optional) expose state for debugging ----
+            window.__navDebug = { isHovering, isHeroVisible, direction, currentState, updateNavState };
         })();
 
 
@@ -5105,13 +5099,6 @@
                 alert('Something went wrong. Please try again or contact us directly on WhatsApp.');
             });
         });
-
-        /* ============================================================
-           NEURAL NETWORK CANVAS — COMPLETELY REMOVED
-           No canvas element, no animation code, no related JS.
-           ============================================================ */
-        // All canvas-related code has been removed.
-        // The hero now uses a static background image with a dark overlay.
     </script>
 
 </body>
