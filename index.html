@@ -676,13 +676,15 @@
             width: 100%;
             margin: 0;
             border-radius: 0;
-            /* Always square corners */
+            /* Default: square corners */
             background: transparent;
             border-bottom: none;
             box-shadow: none;
-            /* Smooth transitions for state changes */
-            transition: background 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), border-bottom 0.2s var(--ease-out), transform 0.25s var(--ease-out), opacity 0.25s var(--ease-out);
-            will-change: transform, opacity, background, box-shadow, border-bottom;
+            /* Smooth transitions for state changes — include all affected properties */
+            transition: background 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), border-bottom 0.2s var(--ease-out),
+                transform 0.25s var(--ease-out), opacity 0.25s var(--ease-out),
+                border-radius 0.25s var(--ease-out), margin 0.25s var(--ease-out), width 0.25s var(--ease-out);
+            will-change: transform, opacity, background, box-shadow, border-bottom, border-radius, margin, width;
         }
 
         .navbar-inner {
@@ -767,18 +769,84 @@
             opacity: 0.8;
         }
 
-        /* State 2: Flat, full-width white bar with square corners */
+        /* ---- State 2: Dark frosted-glass floating card ---- */
         .nav-state-bar {
-            background: var(--canvas) !important;
-            border-bottom: 1px solid var(--hairline) !important;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
-            border-radius: 0 !important;
-            margin: 0 !important;
-            width: 100% !important;
+            /* Fallback for browsers without backdrop-filter support */
+            background: rgba(11, 17, 32, 0.85) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+            border-radius: 16px !important;
+            margin: 12px 24px !important;
+            width: calc(100% - 48px) !important;
             max-width: none !important;
             transform: none !important;
             opacity: 1 !important;
             pointer-events: auto !important;
+
+            /* Frosted glass effect — applied if supported */
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        /* ---- Feature detection for backdrop-filter ---- */
+        @supports (backdrop-filter: blur(1px)) {
+            .nav-state-bar {
+                background: rgba(11, 17, 32, 0.7) !important;
+            }
+        }
+
+        /* ---- Text colors in bar state (dark glass) ---- */
+        .nav-state-bar .nav-link-top,
+        .nav-state-bar .nav-link-standalone {
+            color: #FFFFFF !important;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            background: transparent !important;
+        }
+
+        .nav-state-bar .nav-link-top .dropdown-arrow {
+            opacity: 0.8;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .nav-state-bar .logo {
+            color: #FFFFFF !important;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-state-bar .logo-img {
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .nav-state-bar .nav-link-top:hover,
+        .nav-state-bar .nav-link-standalone:hover {
+            background: rgba(255, 255, 255, 0.12) !important;
+            color: #FFFFFF !important;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-state-bar .nav-item.open .nav-link-top {
+            color: #FFFFFF !important;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-state-bar .nav-item.open .nav-link-top .dropdown-arrow {
+            opacity: 0.8;
+        }
+
+        /* ---- Responsive adjustments for State 2 ---- */
+        @media (max-width: 768px) {
+            .nav-state-bar {
+                border-radius: 12px !important;
+                margin: 8px 16px !important;
+                width: calc(100% - 32px) !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .nav-state-bar {
+                border-radius: 8px !important;
+                margin: 4px 8px !important;
+                width: calc(100% - 16px) !important;
+            }
         }
 
         /* State 3: Fully hidden while scrolling down */
