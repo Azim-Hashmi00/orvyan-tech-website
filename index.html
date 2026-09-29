@@ -833,6 +833,53 @@
             opacity: 0.8;
         }
 
+        /* ---- White hover bar override for State 2 ---- */
+        .nav-state-bar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border: 1px solid rgba(13, 37, 61, 0.08) !important;
+            box-shadow: 0 8px 24px rgba(13, 37, 61, 0.12) !important;
+        }
+
+        @supports (backdrop-filter: blur(1px)) {
+            .nav-state-bar {
+                background: rgba(255, 255, 255, 0.92) !important;
+            }
+        }
+
+        .nav-state-bar .nav-link-top,
+        .nav-state-bar .nav-link-standalone {
+            color: #0d253d !important;
+            text-shadow: none !important;
+            background: transparent !important;
+        }
+
+        .nav-state-bar .nav-link-top .dropdown-arrow {
+            opacity: 0.7 !important;
+            filter: none !important;
+        }
+
+        .nav-state-bar .logo {
+            color: #0d253d !important;
+            text-shadow: none !important;
+        }
+
+        .nav-state-bar .nav-link-top:hover,
+        .nav-state-bar .nav-link-standalone:hover {
+            background: rgba(13, 37, 61, 0.06) !important;
+            color: #0d253d !important;
+            text-shadow: none !important;
+        }
+
+        .nav-state-bar .nav-item.open .nav-link-top {
+            color: #0d253d !important;
+            text-shadow: none !important;
+        }
+
+        .nav-state-bar .nav-item.open .nav-link-top .dropdown-arrow {
+            opacity: 0.7 !important;
+            filter: none !important;
+        }
+
         /* ---- Responsive adjustments for State 2 ---- */
         @media (max-width: 768px) {
             .nav-state-bar {
