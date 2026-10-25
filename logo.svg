@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Orvyan Tech">
+  <circle cx="17" cy="24" r="10" fill="none" stroke="#0B7A80" stroke-width="5"/>
+  <circle cx="17" cy="24" r="3" fill="#F2A33A"/>
+  <path fill="#0C2340" d="M28 10h18v5.5h-6.25V38h-5.5V15.5H28z"/>
+</svg>
