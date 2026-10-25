@@ -52,7 +52,7 @@
     <a class="brand" href="#top" aria-label="Orvyan Tech home"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#mark"/></svg><span>Orvyan <span>Tech</span></span></a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="#services">Services</a>
+      <div class="has-menu"><button class="menu-link" id="svcBtn" type="button" aria-expanded="false" aria-controls="svcMenu">Services<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega" id="svcMenu"><div><a class="mega-title" href="#svc-agents">Agents that talk to customers</a><ul><li><a href="#svc-agents">AI agents</a></li><li><a href="#svc-agents">Voice agents</a></li><li><a href="#svc-agents">WhatsApp AI agents</a></li><li><a href="#svc-agents">Chatbots</a></li><li><a href="#svc-agents">Customer support AI</a></li></ul></div><div><a class="mega-title" href="#svc-workflows">Workflows that run themselves</a><ul><li><a href="#svc-workflows">AI automation</a></li><li><a href="#svc-workflows">Workflow automation</a></li><li><a href="#svc-workflows">Ops and internal workflows</a></li><li><a href="#svc-workflows">Appointment booking</a></li></ul></div><div><a class="mega-title" href="#svc-leads">Leads and growth</a><ul><li><a href="#svc-leads">Lead generation and CRM automation</a></li><li><a href="#svc-leads">Email automation</a></li><li><a href="#svc-leads">Social media automation</a></li></ul></div><div><a class="mega-title" href="#svc-build">Build and advise</a><ul><li><a href="#svc-build">Custom integrations</a></li><li><a href="#svc-build">Custom AI solutions</a></li><li><a href="#svc-build">AI consulting</a></li></ul></div></div></div>
       <a href="#process">How it works</a>
       <a href="#industries">Industries</a>
       <a href="#pricing">Pricing</a>
@@ -95,26 +95,36 @@
       <h2>What we build</h2>
       <p class="lead">Everything is built around the tools you already use: WhatsApp, Google Workspace, your CRM and your website.</p>
     </div>
-    <div class="svc-group"><div><h3>Agents that talk to customers</h3><p>Answer, qualify and book, on the channels your customers already use.</p></div><ul class="svc-list"><li><h3>AI agents</h3><p>Agents that answer questions, qualify leads and take action around the clock across support, sales and operations.</p></li><li><h3>Voice agents</h3><p>Phone agents that answer and make calls, handle routine questions and pass anything complex to your team.</p></li><li><h3>WhatsApp AI agents</h3><p>Automated WhatsApp conversations that answer customers, take orders and book appointments, with a handoff to your team.</p></li><li><h3>Chatbots</h3><p>Conversational assistants for your website, WhatsApp, Telegram or internal team channels.</p></li><li><h3>Customer support AI</h3><p>Resolve common questions instantly and route anything complex to a person.</p></li></ul></div><div class="svc-group"><div><h3>Workflows that run themselves</h3><p>Connect your tools so work moves without someone pushing each step.</p></div><ul class="svc-list"><li><h3>Workflow automation</h3><p>Connect the tools you already use, with n8n and modern AI APIs, so information moves between them on its own.</p></li><li><h3>Ops and internal workflows</h3><p>Cut manual work across teams: approvals, reports, reminders and data entry.</p></li><li><h3>Appointment booking</h3><p>Let people book, reschedule and get reminders without back-and-forth messages.</p></li></ul></div><div class="svc-group"><div><h3>Leads and growth</h3><p>Capture every enquiry and follow up while it is still warm.</p></div><ul class="svc-list"><li><h3>Lead generation and CRM automation</h3><p>Capture, score and follow up on leads automatically so none go cold.</p></li><li><h3>Email automation</h3><p>Sequences and follow-ups triggered by what a person actually does, not a fixed schedule.</p></li><li><h3>Social media automation</h3><p>Plan, publish and repurpose content across platforms with far less manual effort.</p></li></ul></div><div class="svc-group"><div><h3>Build and advise</h3><p>When a template will not fit, or you need to know where to start.</p></div><ul class="svc-list"><li><h3>Custom integrations</h3><p>Bespoke connections between the specific tools and data your business runs on.</p></li><li><h3>Custom AI solutions</h3><p>Purpose-built AI applications for problems a template can't solve.</p></li><li><h3>AI consulting</h3><p>An honest audit of your workflow and where automation will pay off first.</p></li></ul></div>
+    <div class="svc-group" id="svc-agents"><div><h3>Agents that talk to customers</h3><p>Answer, qualify and book, on the channels your customers already use.</p></div><ul class="svc-list"><li><h3>AI agents</h3><p>Agents that answer questions, qualify leads and take action around the clock across support, sales and operations.</p></li><li><h3>Voice agents</h3><p>Phone agents that answer and make calls, handle routine questions and pass anything complex to your team.</p></li><li><h3>WhatsApp AI agents</h3><p>Automated WhatsApp conversations that answer customers, take orders and book appointments, with a handoff to your team.</p></li><li><h3>Chatbots</h3><p>Conversational assistants for your website, WhatsApp or internal team channels.</p></li><li><h3>Customer support AI</h3><p>Resolve common questions instantly and route anything complex to a person.</p></li></ul></div><div class="svc-group" id="svc-workflows"><div><h3>Workflows that run themselves</h3><p>Connect your tools so work moves without someone pushing each step.</p></div><ul class="svc-list"><li><h3>AI automation</h3><p>Systems that execute repetitive work end-to-end, without someone triggering each step.</p></li><li><h3>Workflow automation</h3><p>Connect the tools you already use, with n8n and modern AI APIs, so information moves between them on its own.</p></li><li><h3>Ops and internal workflows</h3><p>Cut manual work across teams: approvals, reports, reminders and data entry.</p></li><li><h3>Appointment booking</h3><p>Let people book, reschedule and get reminders without back-and-forth messages.</p></li></ul></div><div class="svc-group" id="svc-leads"><div><h3>Leads and growth</h3><p>Capture every enquiry and follow up while it is still warm.</p></div><ul class="svc-list"><li><h3>Lead generation and CRM automation</h3><p>Capture, score and follow up on leads automatically so none go cold.</p></li><li><h3>Email automation</h3><p>Sequences and follow-ups triggered by what a person actually does, not a fixed schedule.</p></li><li><h3>Social media automation</h3><p>Plan, publish and repurpose content across platforms with far less manual effort.</p></li></ul></div><div class="svc-group" id="svc-build"><div><h3>Build and advise</h3><p>When a template will not fit, or you need to know where to start.</p></div><ul class="svc-list"><li><h3>Custom integrations</h3><p>Bespoke connections between the specific tools and data your business runs on.</p></li><li><h3>Custom AI solutions</h3><p>Purpose-built AI applications for problems a template can't solve.</p></li><li><h3>AI consulting</h3><p>An honest audit of your workflow and where automation will pay off first.</p></li></ul></div>
   </div>
 </section>
 
-<section class="band" id="process">
+<section class="band" id="tools">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Works with the tools you already use</h2>
+      <p class="lead">We connect to most modern platforms and to custom APIs. These are the ones we use most.</p>
+    </div>
+    <div class="tools-grid"><div><h3>Automation</h3><ul><li>n8n</li><li>Make</li><li>Zapier</li></ul></div><div><h3>AI</h3><ul><li>OpenAI</li><li>Custom AI APIs</li></ul></div><div><h3>Messaging</h3><ul><li>WhatsApp Business API</li><li>Slack</li><li>Gmail</li></ul></div><div><h3>Business tools</h3><ul><li>Google Workspace</li><li>Google Sheets</li><li>HubSpot</li><li>Notion</li><li>Airtable</li><li>Shopify</li><li>Typeform</li></ul></div><div><h3>Social</h3><ul><li>Meta API</li><li>LinkedIn API</li></ul></div></div>
+  </div>
+</section>
+
+<section class="band band-white" id="process">
   <div class="wrap">
     <div class="section-head">
       <h2>From first call to live automation</h2>
       <p class="lead">Four steps, in order. Each one depends on the last.</p>
     </div>
     <ol class="steps">
-      <li><h3>Discovery</h3><p>We learn your workflow, your tools and where the time is actually going.</p></li>
-      <li><h3>Strategy</h3><p>A concrete automation plan, prioritized by impact, not novelty.</p></li>
-      <li><h3>Build and test</h3><p>We build the system and test it against real scenarios before launch.</p></li>
-      <li><h3>Launch and support</h3><p>Live, monitored and refined as your business changes.</p></li>
+      <li><h3>Discovery</h3><p>We learn your workflow, your tools and where the time is actually going.</p><p class="get"><strong>You get</strong> a clear picture of what to automate first.</p></li>
+      <li><h3>Strategy</h3><p>A concrete automation plan, prioritized by impact, not novelty.</p><p class="get"><strong>You get</strong> a written plan with scope and a quote.</p></li>
+      <li><h3>Build and test</h3><p>We build the system and test it against real scenarios before launch.</p><p class="get"><strong>You get</strong> a working system, tested on real scenarios.</p></li>
+      <li><h3>Launch and support</h3><p>Live, monitored and refined as your business changes.</p><p class="get"><strong>You get</strong> a live system, documentation and a support period.</p></li>
     </ol>
   </div>
 </section>
 
-<section class="band band-white" id="industries">
+<section class="band" id="industries">
   <div class="wrap">
     <div class="section-head">
       <h2>Who we build for</h2>
@@ -164,7 +174,7 @@
 <section class="band" id="faq">
   <div class="wrap">
     <div class="section-head"><h2>Frequently asked questions</h2></div>
-    <div class="faq"><details open><summary>What kind of businesses do you work with?</summary><p>Startups, agencies, local businesses, creators, healthcare providers, e-commerce brands and individuals who want to automate repetitive work. No size is too small to start.</p></details><details><summary>How much does it cost?</summary><p>It depends on the number of workflows, the tools involved and whether an AI agent is needed. Every project starts with a free consultation, after which you get a clear quote for the scope we agree on.</p></details><details><summary>How long does it take to build an automation?</summary><p>Simple workflows can go live within a few days. More involved AI agents or multi-tool integrations typically take two to four weeks, depending on scope.</p></details><details><summary>Do I need technical knowledge to use what you build?</summary><p>No. We design systems to be easy to manage day to day, and we provide documentation and a walkthrough so your team is comfortable running them.</p></details><details><summary>Which tools can you integrate with?</summary><p>Most modern platforms: n8n, Make, Zapier, WhatsApp, Telegram, Slack, Google Workspace, Shopify, HubSpot, Notion, Airtable and custom APIs, among others.</p></details><details><summary>Is my data secure?</summary><p>We use encrypted connections, secure credential storage and role-based access, and can design systems that keep sensitive data inside your existing infrastructure.</p></details><details><summary>Do you offer support after launch?</summary><p>Yes. Every plan includes a support period after launch, and ongoing monitoring and optimization packages are available so your automation stays reliable as your business changes.</p></details></div>
+    <div class="faq"><details open><summary>What kind of businesses do you work with?</summary><p>Startups, agencies, local businesses, creators, healthcare providers, e-commerce brands and individuals who want to automate repetitive work. No size is too small to start.</p></details><details><summary>How much does it cost?</summary><p>It depends on the number of workflows, the tools involved and whether an AI agent is needed. Every project starts with a free consultation, after which you get a clear quote for the scope we agree on.</p></details><details><summary>How long does it take to build an automation?</summary><p>Simple workflows can go live within a few days. More involved AI agents or multi-tool integrations typically take two to four weeks, depending on scope.</p></details><details><summary>Do I need technical knowledge to use what you build?</summary><p>No. We design systems to be easy to manage day to day, and we provide documentation and a walkthrough so your team is comfortable running them.</p></details><details><summary>Which tools can you integrate with?</summary><p>Most modern platforms: n8n, Make, Zapier, WhatsApp, Slack, Google Workspace, Shopify, HubSpot, Notion, Airtable and custom APIs, among others.</p></details><details><summary>Is my data secure?</summary><p>We use encrypted connections, secure credential storage and role-based access, and can design systems that keep sensitive data inside your existing infrastructure.</p></details><details><summary>Do you offer support after launch?</summary><p>Yes. Every plan includes a support period after launch, and ongoing monitoring and optimization packages are available so your automation stays reliable as your business changes.</p></details></div>
   </div>
 </section>
 
@@ -236,6 +246,17 @@
   nav.addEventListener('click', function (e) {
     if (e.target.tagName === 'A') { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }
   });
+
+  var svcBtn = document.getElementById('svcBtn'), svcMenu = document.getElementById('svcMenu');
+  function closeMenu() { svcMenu.classList.remove('open'); svcBtn.setAttribute('aria-expanded', 'false'); }
+  svcBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (window.matchMedia('(max-width: 760px)').matches) { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); location.hash = '#services'; return; }
+    var open = svcMenu.classList.toggle('open'); svcBtn.setAttribute('aria-expanded', open);
+  });
+  svcMenu.addEventListener('click', function (e) { if (e.target.closest('a')) closeMenu(); });
+  document.addEventListener('click', function (e) { if (!svcMenu.contains(e.target)) closeMenu(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeMenu(); svcBtn.focus(); } });
 
   var steps = document.getElementById('flowSteps');
   function sizePulse() { steps.style.setProperty('--travel', Math.max(steps.offsetHeight - 12, 0) + 'px'); }
