@@ -148,16 +148,16 @@ FOOT = f"""</main>
 </footer>
 <aside class="wa-dock" id="waDock" aria-label="Chat with Orvyan Tech on WhatsApp">
   <div class="wa-head">
-    <span class="wa-ava">OT</span>
+    <span class="wa-ava"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1a11 11 0 0 1-4.4-3.1c-1-1.2-1.6-2.4-1.6-3.2 0-.7.4-1.4.8-1.7.2-.2.4-.2.6-.2h.5c.2 0 .3 0 .5.4l.6 1.5c.1.2 0 .4-.1.5l-.4.5c-.1.2-.2.3 0 .5.4.7 1.5 1.9 2.4 2.3.2.1.4.1.5 0l.6-.7c.1-.2.3-.2.5-.1l1.5.7c.2.1.4.2.4.4 0 .1 0 .5-.1.9Z"/></svg></span>
     <div><strong>Orvyan Tech</strong><small>Replies instantly, 24/7</small></div>
-    <button class="wa-min" type="button" aria-label="Minimise chat">&#8211;</button>
+    <button class="wa-min" type="button" aria-label="Minimise chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></button>
   </div>
   <div class="wa-body">
     <div class="wa-msg in">Hi, this is Orvyan Tech. Tell us what eats your team's time and we will say what can be automated.</div>
     <div class="wa-msg in">Voice agents, WhatsApp bots, n8n workflows, CRM follow up.</div>
     <div class="wa-msg me">Can you look at our clinic booking flow?</div>
   </div>
-  <a class="wa-cta" href="{WHATSAPP}" target="_blank" rel="noopener">Open WhatsApp</a>
+  <a class="wa-cta" href="{WHATSAPP}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1a11 11 0 0 1-4.4-3.1c-1-1.2-1.6-2.4-1.6-3.2 0-.7.4-1.4.8-1.7.2-.2.4-.2.6-.2h.5c.2 0 .3 0 .5.4l.6 1.5c.1.2 0 .4-.1.5l-.4.5c-.1.2-.2.3 0 .5.4.7 1.5 1.9 2.4 2.3.2.1.4.1.5 0l.6-.7c.1-.2.3-.2.5-.1l1.5.7c.2.1.4.2.4.4 0 .1 0 .5-.1.9Z"/></svg>Open WhatsApp</a>
 </aside>
 <script src="assets/js/site.js" defer></script>
 </body>
