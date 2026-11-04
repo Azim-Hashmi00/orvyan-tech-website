@@ -419,3 +419,17 @@ a:hover{color:var(--amber)}
 .wa-cta:hover{transform:translateY(-2px);box-shadow:0 14px 30px -16px rgba(216,255,74,.8);color:#0a0d08}
 @media (max-width:760px){.wa-dock{right:12px;bottom:12px;width:calc(100vw - 24px)}.wa-dock.min{width:58px;height:58px}}
 @media (prefers-reduced-motion:reduce){.wa-msg{animation:none;opacity:1;transform:none}}
+
+/* pricing: make the turnaround visible instead of leaving the cards empty */
+.price-card .turnaround{
+  display:inline-flex;align-items:center;gap:8px;
+  margin:2px 0 16px;padding:7px 12px;border-radius:999px;
+  background:rgba(216,255,74,.10);border:1px solid rgba(216,255,74,.35);
+  color:#e9ff9e;font-size:.78rem;font-weight:600;letter-spacing:.01em;
+}
+.price-card .turnaround::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);
+  box-shadow:0 0 0 3px rgba(216,255,74,.18);
+}
+.price-card.feature .turnaround{background:rgba(8,9,12,.35);border-color:rgba(8,9,12,.35);color:#0b1200}
+.price-card.feature .turnaround::before{background:#0b1200;box-shadow:none}

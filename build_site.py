@@ -452,6 +452,7 @@ def page_pricing():
       <div class="tier">{sub}</div>
       <h3>{name}</h3>
       <p class="quote">{desc}</p>
+      <p class="turnaround">Written quote within 24 hours of the call</p>
       <ul>{li}</ul>
       <a class="cta {'ghost' if not feature else ''}" href="contact.html">Get a quote</a>
     </div>"""
