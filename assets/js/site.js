@@ -88,15 +88,29 @@
   }
 })();
 
-/* docked WhatsApp window: starts open, collapses to a round button */
+/* docked WhatsApp window: a round button until the visitor opens it.
+   No timers, and the choice is remembered across pages. */
 (function(){
   var dock = document.getElementById('waDock');
   if (!dock) return;
+  var KEY = 'ot-wa-dock';
   var minBtn = dock.querySelector('.wa-min');
-  function collapse(){ dock.classList.add('min'); }
-  function expand(){ dock.classList.remove('min'); }
-  minBtn && minBtn.addEventListener('click', function(e){ e.stopPropagation(); collapse(); });
+  function remember(v){ try { localStorage.setItem(KEY, v); } catch(e){} }
+  function collapse(){ dock.classList.add('min'); remember('min'); }
+  function expand(){ dock.classList.remove('min'); remember('open'); }
+
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch(e){}
+  if (saved === 'open') expand(); else collapse();
+
+  if (minBtn) {
+    minBtn.addEventListener('click', function(e){ e.stopPropagation(); collapse(); });
+  }
   dock.addEventListener('click', function(){ if (dock.classList.contains('min')) expand(); });
-  dock.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') expand(); });
-  if (window.matchMedia('(max-width:760px)').matches) setTimeout(collapse, 4200);
+  dock.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      if (dock.classList.contains('min')) expand();
+    }
+  });
 })();
