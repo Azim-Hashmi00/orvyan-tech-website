@@ -180,6 +180,16 @@ def flow_card():
       </div>"""
 
 
+def voice_card():
+    return """
+      <div class="voice-card reveal d2" aria-hidden="true">
+        <div class="voice-top"><span>Front desk line</span><i>Live call</i></div>
+        <div class="vbars on" id="hb"></div>
+        <div class="vlog" id="hl"></div>
+        <div class="voice-tag">Appointment booked &middot; confirmation text sent &middot; call recorded</div>
+      </div>"""
+
+
 def cta_band(title, text, primary=("contact.html", "Book a free consultation"), secondary=(WHATSAPP, "Message us on WhatsApp")):
     return f"""
 <section><div class="wrap"><div class="cta-band reveal">
@@ -198,17 +208,18 @@ def write(name, html):
 # ----------------------------------------------------------------- index
 def page_index():
     h = head(
-        "Orvyan Tech | AI agents, voice agents and workflow automation",
-        "Orvyan Tech builds AI agents, voice agents, WhatsApp bots and n8n workflow automation for businesses, creators and individuals. Book a free consultation.",
+        "Orvyan Tech | AI voice agents, WhatsApp bots and workflow automation",
+        "Orvyan Tech builds AI voice agents that answer every call and book the appointment, plus WhatsApp bots and n8n workflows. Talk to a live demo agent in your browser.",
         "index.html",
+        extra='<script defer src="assets/js/demo.js"></script>',
     )
     h += f"""
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow reveal"><i></i> AI agents &middot; Voice &middot; n8n workflows</span>
-      <h1 class="display reveal d1">AI agents and automations that <span class="grad">answer, follow up</span> and keep work moving.</h1>
-      <p class="lede reveal d2">We build voice agents, WhatsApp bots and n8n workflows around the tools and habits your business already has. No rip and replace, no new platform to learn.</p>
+      <span class="eyebrow reveal"><i></i> Voice agents &middot; WhatsApp &middot; n8n workflows</span>
+      <h1 class="display reveal d1">Voice agents that <span class="grad">answer every call</span> and book the job.</h1>
+      <p class="lede reveal d2">We build AI voice agents for dental clinics and property teams, plus the WhatsApp bots and workflows that keep the rest of the work moving. We set it up and run it for you.</p>
       <div class="hero-actions reveal d3">
         <a class="cta" href="contact.html">Book a free consultation {icon('arrow')}</a>
         <a class="cta ghost" href="{WHATSAPP}" target="_blank" rel="noopener">Message us on WhatsApp</a>
@@ -219,7 +230,7 @@ def page_index():
         <span>{icon('clock')} Reply within 24 hours</span>
       </div>
     </div>
-    {flow_card()}
+    {voice_card()}
   </div>
 </section>
 
@@ -229,6 +240,32 @@ def page_index():
     <span>WhatsApp</span><span>n8n</span><span>Make</span><span>Zapier</span><span>HubSpot</span><span>Shopify</span><span>Google Workspace</span><span>Airtable</span><span>Notion</span><span>Slack</span><span>OpenAI</span><span>Twilio</span>
   </div>
 </div>
+
+<section id="demo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Live demo</span>
+      <h2>Don&rsquo;t take our word for it. Call Eric.</h2>
+      <p>A working voice agent in your browser. Pick a business, press start and speak, or type if you prefer. Demo calls stop after two minutes.</p>
+    </div>
+    <div class="vd-grid">
+      <div>
+        <div class="vseg" role="group" aria-label="Choose a business"><button aria-pressed="true" data-sc="dental">Dental clinic</button><button aria-pressed="false" data-sc="prop">Property management</button></div>
+        <p class="vd-hint">Not sure what to say? Try one of these.</p>
+        <ul class="vtry" id="try"></ul>
+      </div>
+      <div class="vbox">
+        <div class="vbars" id="db"></div>
+        <div class="vlog" id="dl" aria-live="polite"></div>
+        <div class="vctrl">
+          <button class="cta" id="go" type="button">Start call</button>
+          <form class="vtxt" id="tf"><input id="ti" placeholder="Or type your message" aria-label="Type your message" autocomplete="off"><button>Send</button></form>
+        </div>
+        <div class="vst"><span id="stt">Ready</span><span id="tm">2:00</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
